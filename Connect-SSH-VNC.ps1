@@ -8,7 +8,7 @@
 #
 # --------------------------------------------------------------------------------------------
 # Name: Connect-SSH-VNC.ps1
-# Date: 2021.02.19 ver 1
+# Date: 2021.02.25 ver 1.5
 # Description:
 # Quick AND secure method to connect to a Mac from a Windows system using SSH tunneling
 #
@@ -44,14 +44,23 @@ Start-Process powershell.exe -argument "-noexit -nologo -noprofile -command $SSH
 
 [int]$Tries=0
 [bool]$KeepTrying=$True
+[bool]$Connect=$True
 While ($KeepTrying) {
 	$Connection=Get-NetTCPConnection | Where {$_.LocalPort -eq $LocalPort}
 	If ($Connection) {$KeepTrying = $False}
-	$Tries++
-	If ($Tries -ge 30) {$KeepTrying = $False}
+	Else {$Tries++}
+	If ($Tries -ge 30) {
+		$KeepTrying = $False
+		$Connect = $False
+	}
 	Start-Sleep -Seconds 1
 }
 
-If (!($KeepTrying)) {
+If (!($KeepTrying) -and $Connect) {
 	Start-Process -FilePath $VNCFilePath -ArgumentList $VNCHostAndPort
+}
+Else {
+	""
+	Write-Host "ERROR: Port $LocalPort is not open or was not tunneled to $RemoteHost" -ForegroundColor Red -BackgroundColor Black
+	""
 }
