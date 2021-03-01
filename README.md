@@ -38,12 +38,12 @@ Open System Prefferences
   - Navigate to file download location.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
-.\Connect-SSH-VNC.ps1 -RemoteUser <remote username> -RemoteHost <remote hostname>
+.\Connect-SSH-VNC.ps1 -RemoteUser <remote_username> -RemoteHost <remote_hostname_or_ip>
 ```
   - A separate PowerShell window will be opened.
   - Enter the remote user's password to SSH to this host.
-  - A RealVNC Window will open and indicates that the session to localhost::<port number> is not encrypted.
-    Techincally that is true BUT what VNC doesn't know is that you are tunneling <port number> through the SSH tunnel
+  - A RealVNC Window will open and indicates that the session to localhost::port_number is not encrypted.
+    Techincally that is true BUT what VNC doesn't know is that you are tunneling the port through the SSH tunnel
   - Click [Continue]
   - Enter the "Screen Sharing" password
   - You may, again, be warned that the session is not encrypted.
@@ -51,7 +51,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 
 ## Alternative Windows Instructions:
   - Download Connect-SSH-VNC.ps1
-  - Edit Connect-SSH-VNC.ps1 with your ownn default settings.
+  - Edit Connect-SSH-VNC.ps1 with your own default settings.
   - Open PowerShell.
   - Navigate to file download location.
 ```powershell
