@@ -31,7 +31,7 @@ Open System Prefferences
     - Click [OK]
   - Check "Only these users:"
     - Click [+] to "Select" users
-  Navigate to "Remote Login"
+- Navigate to "Remote Login"
     - Check "Only these users:"
       - Click [+] to "Select" users
 
