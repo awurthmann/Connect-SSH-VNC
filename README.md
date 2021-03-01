@@ -15,7 +15,7 @@ You may redistribute copies of the code under the terms of the GPL v3.
   - TL;DR I have my reasons for doing things this way; you the executor, runner, user, accept all liability and should likely have your own reasons.
 
 ## Prerequisites
-- Install RealVNC
+- Install RealVNC on Windows system
 - Complete macOS Setup
 
 ## macOS Setup:
