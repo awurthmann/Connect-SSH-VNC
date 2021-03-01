@@ -1,5 +1,5 @@
 # Connect-SSH-VNC
-Establish SSH connection from Microsoft Windows system then tunnels RealVNC session through SSH connection to host, example to macOS host.
+Establish SSH connection from Microsoft Windows system then tunnels RealVNC session through SSH connection to host, example to macOS host. This script and instructions were tested with: Microsoft Windows [Version 10.0.19042.804], Powershell [Version 5.1.19041.610] >  macOS Catalina 10.15.7 (19H2)
 
 ## Legal
 You the executor, runner, user accept all liability.
