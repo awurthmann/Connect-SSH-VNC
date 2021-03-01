@@ -23,7 +23,7 @@ You may redistribute copies of the code under the terms of the GPL v3.
 
 ## macOS Setup:
 Open System Prefferences
-  Navigate to "Screen Sharing"
+- Navigate to "Screen Sharing"
   - Click [Computer Settings...]
     - Uncheck "Anyone may request permission to control screen"
     - Check "VNC viewers may control screen with password"
