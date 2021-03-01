@@ -1,18 +1,21 @@
 # Connect-SSH-VNC
 Establish SSH connection from Microsoft Windows system then tunnels RealVNC session through SSH connection to host, example to macOS host. This script and instructions were tested with: Microsoft Windows [Version 10.0.19042.804], Powershell [Version 5.1.19041.610] >  macOS Catalina 10.15.7 (19H2)
 
+
 ## Legal
 You the executor, runner, user accept all liability.
 This code comes with ABSOLUTELY NO WARRANTY.
 You may redistribute copies of the code under the terms of the GPL v3.
 
+
 ## Warning
 - The intent of this script is to encrypt the VNC session when connecting from a Windows system to an Apple macOS system.
-  - Connecting from Windows to macOS is not encrypted as of March 1st, 2021.
+  - Without SSH tunneling connecting from Windows to macOS is not encrypted as of March 1st, 2021.
   - This script establishes an SSH tunnel then VNCs through the tunnel.
   - Connecting from macOS to macOS is encrypted.
 - In order to allow a Windows system to connect to a macOS system the macOS system has to allow standard VNC. It should be noted that allowing standard VNC/Screen Sharing does not fit security best practices.
   - TL;DR I have my reasons for doing things this way; you the executor, runner, user, accept all liability and should likely have your own reasons.
+
 
 ## Prerequisites
 - Install RealVNC on Windows system
@@ -31,6 +34,7 @@ Open System Prefferences
   Navigate to "Remote Login"
     - Check "Only these users:"
       - Click [+] to "Select" users
+
 
 ## Windows Instructions:
   - Download Connect-SSH-VNC.ps1
