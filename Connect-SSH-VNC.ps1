@@ -8,11 +8,11 @@
 #
 # --------------------------------------------------------------------------------------------
 # Name: Connect-SSH-VNC.ps1
-# Date: 2021.02.25 ver 1.5
+# Date: 2023.02.23 ver 1.6
 # Description:
 # Quick AND secure method to connect to a Mac from a Windows system using SSH tunneling
 #
-# Tested with: Microsoft Windows [Version 10.0.19042.804] >  macOS Catalina 10.15.7 (19H2)
+# Tested with: Microsoft Windows [Version 10.0.22621.1265] >  macOS Ventura 13.0.1
 # --------------------------------------------------------------------------------------------
 
 
@@ -32,6 +32,20 @@ While ($LocalPort -eq 0) {
 		$LocalPort=$RandomPort
 	}
 }
+
+If (Test-Path $PSScriptRoot\settings.json) {
+	$SettingsObject = Get-Content -Path $PSScriptRoot\settings.json | ConvertFrom-Json
+	If ($SettingsObject.RemoteUser) {$RemoteUser = $SettingsObject.RemoteUser}
+	If ($SettingsObject.RemoteHost) {$RemoteHost = $SettingsObject.RemoteHost}
+	If ($SettingsObject.RemotePort) {$RemotePort = $SettingsObject.RemotePort}
+}
+
+## settings.json example
+# {
+	# "RemoteUser": "awurthmann",
+	# "RemoteHost": "1.12.133.7"
+# }
+
 
 $SSHExpression = "ssh -L " + $LocalPort.ToString() +":"+ $RemoteHost +":"+ $RemotePort.ToString() + " $RemoteUser@$RemoteHost"
 Write-Host $SSHExpression -ForegroundColor Blue -BackgroundColor Black
